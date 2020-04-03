@@ -26,8 +26,6 @@ install:
 - pip install $DJANGO_VERSION
 # - pip install -r requirements/unittest.txt # this line is optional, depends on your setup
 - pip install .
-script:
-- python setup.py test
 deploy:
   provider: pypi
   server: https://index.pydist.com/simple/
