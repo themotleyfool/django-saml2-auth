@@ -1,0 +1,38 @@
+language: python
+python:
+- 3.6
+- 3.7
+- 3.8
+cache:
+  pip: true
+env:
+  global:
+    - PIP_INDEX_URL: https://packages:yD0Ly86v1DEVvieO08v4Dp0pVOp7wtzO@index.pydist.com/simple/
+  jobs: # this section will cause tests against both Django 1.11.x, 2.2.x, 3.0.x you may omit or alter file appropriately if you are only Django 2.2 compatible. Useful to have ready for Djagno 3.0
+    - DJANGO_VERSION='Django~=1.11'
+    - DJANGO_VERSION='Django~=2.2'
+    - DJANGO_VERSION='Django~=3.0'
+# if you have py27 still you need to add/edit this section
+jobs:
+  fast_finish: true
+  exclude:
+  - python: 2.7
+    env: DJANGO_VERSION='Django~=2.2'
+  - python: 2.7
+    env: DJANGO_VERSION='Django~=3.0'
+# end of py27 section
+install:
+- pip install -U pip setuptools
+- pip install $DJANGO_VERSION
+- pip install -r requirements/unittest.txt # this line is optional, depends on your setup
+- pip install .
+script:
+- python setup.py test
+deploy:
+  provider: pypi
+  server: https://index.pydist.com/simple/
+  user: packaging
+  password: yD0Ly86v1DEVvieO08v4Dp0pVOp7wtzO
+  skip_existing: true
+  on:
+    tags: true
