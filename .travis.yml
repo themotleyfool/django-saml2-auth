@@ -24,7 +24,7 @@ jobs:
 install:
 - pip install -U pip setuptools
 - pip install $DJANGO_VERSION
-- pip install -r requirements/unittest.txt # this line is optional, depends on your setup
+# - pip install -r requirements/unittest.txt # this line is optional, depends on your setup
 - pip install .
 script:
 - python setup.py test
