@@ -8,7 +8,7 @@ cache:
 env:
   global:
     - PIP_INDEX_URL: https://packages:yD0Ly86v1DEVvieO08v4Dp0pVOp7wtzO@index.pydist.com/simple/
-  jobs: # this section will cause tests against both Django 1.11.x, 2.2.x, 3.0.x you may omit or alter file appropriately if you are only Django 2.2 compatible. Useful to have ready for Djagno 3.0
+  jobs:
     - DJANGO_VERSION='Django~=1.11'
     - DJANGO_VERSION='Django~=2.2'
     - DJANGO_VERSION='Django~=3.0'
