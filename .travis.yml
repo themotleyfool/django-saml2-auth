@@ -12,7 +12,6 @@ env:
     - DJANGO_VERSION='Django~=1.11'
     - DJANGO_VERSION='Django~=2.2'
     - DJANGO_VERSION='Django~=3.0'
-# if you have py27 still you need to add/edit this section
 jobs:
   fast_finish: true
   exclude:
