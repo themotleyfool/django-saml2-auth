@@ -20,7 +20,6 @@ jobs:
     env: DJANGO_VERSION='Django~=2.2'
   - python: 2.7
     env: DJANGO_VERSION='Django~=3.0'
-# end of py27 section
 install:
 - pip install -U pip setuptools
 - pip install $DJANGO_VERSION
