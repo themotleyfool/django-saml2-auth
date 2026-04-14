@@ -11,7 +11,7 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::653197303645:role/tmf/github-runner-role
           aws-region: us-east-1
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@v4.3.1
         
       - name: set_vars
         id: set_vars
@@ -21,12 +21,12 @@ jobs:
           echo "token=${CODEARTIFACT_AUTH_TOKEN}" >> $GITHUB_OUTPUT
 
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.3.1
         # with:
         #   fetch-depth: 0
 
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v5.6.0
         with:
           python-version: "3.11"
 
